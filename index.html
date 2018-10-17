@@ -1,0 +1,59 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Trail Running Finder</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://bootswatch.com/4/materia/bootstrap.min.css" rel="stylesheet">
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+   rel = "stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+<!-- Header -->
+    <header role="header">
+        <h1>Lets Go Trail Running</h1>
+      </header>
+<!-- Main -->
+    <main role="main" class="container">
+<!-- Input Form -->
+      <section class="input-form">
+        <form class="col-form-label" id="search-bar">
+          <label class="col-form-label" for="inputDefault">Enter Your Address</label>
+          <input type="text" class="form-control" placeholder="Address" id="search-input">
+          <br />
+
+
+            <p>
+              <label for="amount">Miles:</label>
+              <input type="text" id="amount" readonly >
+            </p>
+          <div id="slider-range"></div>
+          <br />
+          <button class="btn btn-warning" type="submit">Search</button>
+        </form>
+      </section>
+    </section>
+         <br>
+         <p id="js-error-message" class="error-message"></p>
+           <section id="results" class="hidden">
+             <h2>Search results</h2>
+             <ul id="results-list">
+             </ul>
+           </section>
+
+    </main>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js" charset="utf-8"></script>
+  </body>
+</html>
