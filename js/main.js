@@ -11,21 +11,38 @@ function formatQueryParamsGoogle(googleParams) {
   return googleQueryItems.join('&');
 }
 
-//converts address to lat and long
+//converts address to lat and long4
 function convertAddress(addressQuary) {
   const googleParams = {
-      address: addressQuary,
-      key: googleKey
+    address: addressQuary,
+    key: googleKey
 
-    };
-    const googleQueryString = formatQueryParamsGoogle(googleParams)
-    const url = googleUrl + '?' + googleQueryString;
+  };
+  const googleQueryString = formatQueryParamsGoogle(googleParams)
+  const url = googleUrl + '?' + googleQueryString;
 
-    console.log(url);
-
-
+  //console.log(url);
+  fetch(url)
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(response.statusText);
+    })
+    .then(responseJson => getLatLong(responseJson))
+    .catch(err => {
+      $('#js-error-message').text(`Something went wrong: ${err.message}`);
+    });
 }
-
+//get lat and long
+function getLatLong(responseJson) {
+  //console.log(responseJson);
+  for (let i = 0; i < responseJson.results.length; i++) {
+    //console.log(responseJson.results[i].geometry.location.lat);
+    //console.log(responseJson.results[i].geometry.location.lng);
+    let googleLng = responseJson.results[i].geometry.location.lng;
+  }
+}
 
 //formats the params for the hiking api
 function formatQueryParamsHiking() {
@@ -76,6 +93,7 @@ function watchForm() {
       convertAddress(addressQuary);
 
     });
+
   }
 }
 
