@@ -4,7 +4,40 @@
   font-weight:bold;"
 }
 
-a:link {
-  font-size: 25px;
 
+img {
+  display: block;
+  width: 50%;
+
+
+}
+h1{
+  font-size: 2.03125rem;
+text-align: center;
+color: #ff9800;
+}
+
+h2{
+  font-size: 1.625rem;
+  text-align: inherit;
+  padding-left: 41px;
+}
+#amount {
+  border: 0;
+background-color: #eee;
+font-weight: bold;
+}
+
+.form-control {
+  font-size: 15px;
+
+}
+#lable-amount {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+#results h3 {
+      padding-left: 20px;
+      font-weight: bold;'
 }

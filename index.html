@@ -16,19 +16,21 @@
   <body>
 <!-- Header -->
     <header role="header">
-        <h1>Lets Go Trail Running</h1>
+
       </header>
 <!-- Main -->
     <main role="main" class="container">
 
 <!-- Input Form -->
+  <div class="jumbotron">
+    <h1>Lets Go Trail Running</h1>
       <section class="input-form">
         <form class="col-form-label" id="search-bar">
           <label class="col-form-label" for="inputDefault"></label>
-          <input type="location" class="form-control" placeholder="City" id="search-input">
+          <input type="city" class="form-control" placeholder="City" id="search-input" required>
           <br />
             <p>
-              <label for="amount">Min trail length, in miles:</label>
+              <label id="lable-amount" for="amount">Min trail length, in miles:</label>
               <input type="text" id="amount" readonly >
             </p>
           <div id="slider-range"></div>
@@ -36,13 +38,13 @@
           <button class="btn btn-warning" type="submit">Search</button>
         </form>
       </section>
-
+    </div>
          <br>
          <p id="js-error-message" class="error-message"></p>
            <section id="results" class="hidden">
              <h2>Search results</h2>
-             <ul id="results-list">
-             </ul>
+             <ul id="results-list"></ul>
+             <h3 id="no-results-list"></h3>
            </section>
 
     </main>
@@ -52,6 +54,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="js/main.js" charset="utf-8"></script>
   </body>
