@@ -2,7 +2,7 @@
 const hikeKey = '200374662-587dcab816d8b46ebb6a1320143c05e8';
 const googleKey = 'AIzaSyAlfZawjUjjPhFVgPP55skv22vktzNhPGM';
 const googleUrl = 'https://maps.googleapis.com/maps/api/geocode/json';
-const hikeURL = 'https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10';
+const hikeURL = 'https://www.hikingproject.com/data/get-trails';
 
 //formats the params for the hiking api
 function formatQueryParamsHiking(params) {
@@ -11,16 +11,14 @@ function formatQueryParamsHiking(params) {
   return queryItems.join('&');
 }
 
-
 //dispalys the results from the hiking api
 function displayResults(responseJson) {
   $('#results-list').empty();
   $('#no-results-list').empty();
   $('#search-bar').trigger("reset");
 
-
+//If the results are not 0 then it loops through the object.
   if (responseJson.trails.length != 0) {
-
     for (let i = 0; i < responseJson.trails.length; i++) {
       $('#results-list').append(
         `<div class="card mb-3">
@@ -63,6 +61,8 @@ function getHikeingData(googleLat, googleLng, minMile, maxMile) {
   };
   const queryString = formatQueryParamsHiking(params)
   const url = hikeURL + '?' + queryString;
+
+console.log(url);
   fetch(url)
     .then(response => {
       if (response.ok) {
@@ -79,7 +79,6 @@ function getHikeingData(googleLat, googleLng, minMile, maxMile) {
 
 //handles the slider, the form, converts user city to lat and long,
 function handleGoogle() {
-
   //display the slider
   let sliderElement = $("#slider-range");
   $(function() {
@@ -100,7 +99,8 @@ function handleGoogle() {
     $('form').submit(event => {
       event.preventDefault();
       const minMile = sliderElement.slider('values', 0);
-      const addressQuary = $('#search-input').val();
+      const addressJoin = $('#search-input').val();
+      const addressQuary = addressJoin.split(' ').join('+')
       convertAddress(addressQuary);
       //formats the params for the google maps converter
       function formatQueryParamsGoogle(googleParams) {
@@ -114,11 +114,10 @@ function handleGoogle() {
         const googleParams = {
           address: addressQuary,
           key: googleKey
-
         };
         const googleQueryString = formatQueryParamsGoogle(googleParams)
         const url = googleUrl + '?' + googleQueryString;
-
+console.log(url);
         //fetch data from Google api
         fetch(url)
           .then(response => {
