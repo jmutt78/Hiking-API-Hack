@@ -56,4 +56,7 @@ font-weight: bold;
     img {
       width: 100%;
     }
+    .jumbotron{
+          margin-top: 0px;
+    }
 }
