@@ -22,7 +22,7 @@ function displayResults(responseJson) {
     for (let i = 0; i < responseJson.trails.length; i++) {
       $('#results-list').append(
         `<div class="card mb-3">
-  <h3 class="card-header">${responseJson.trails[i].name}r</h3>
+  <h3 class="card-header">${responseJson.trails[i].name}</h3>
   <div class="card-body">
     <h5 class="card-title">${responseJson.trails[i].location}</h5>
   </div>
