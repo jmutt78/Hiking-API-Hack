@@ -17,7 +17,7 @@ function displayResults(responseJson) {
   $('#no-results-list').empty();
   $('#search-bar').trigger("reset");
 
-//If the results are not 0 then it loops through the object.
+  //If the results are not 0 then it loops through the object.
   if (responseJson.trails.length != 0) {
     for (let i = 0; i < responseJson.trails.length; i++) {
       $('#results-list').append(
@@ -61,8 +61,6 @@ function getHikeingData(googleLat, googleLng, minMile, maxMile) {
   };
   const queryString = formatQueryParamsHiking(params)
   const url = hikeURL + '?' + queryString;
-
-console.log(url);
   fetch(url)
     .then(response => {
       if (response.ok) {
@@ -75,8 +73,6 @@ console.log(url);
       $('#js-error-message').text(`Something went wrong: ${err.message}`);
     });
 }
-
-
 //handles the slider, the form, converts user city to lat and long,
 function handleGoogle() {
   //display the slider
@@ -117,7 +113,6 @@ function handleGoogle() {
         };
         const googleQueryString = formatQueryParamsGoogle(googleParams)
         const url = googleUrl + '?' + googleQueryString;
-console.log(url);
         //fetch data from Google api
         fetch(url)
           .then(response => {
