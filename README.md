@@ -5,6 +5,7 @@ Summary: The user enters a search parameter which includes the following:
 1. City
 2. State
 3. Minimum Distance in Miles 
+
 The results will be the top 50 trails matching their parameters. 
 Each trail card has the following information. 
 1. Name of the trail 
